@@ -1,4 +1,4 @@
-class PlantsController < ApplicationController
+class Api::PlantsController < ApplicationController
   before_action :set_plant, only: [:show, :update, :destroy]
 
   # GET /plants
