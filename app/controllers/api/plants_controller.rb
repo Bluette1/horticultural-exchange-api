@@ -1,4 +1,5 @@
 class Api::PlantsController < ApplicationController
+  load_and_authorize_resource only: [:update, :destroy, :create]
   before_action :set_plant, only: [:show, :update, :destroy]
 
   # GET /plants
