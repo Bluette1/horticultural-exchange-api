@@ -84,6 +84,7 @@ test:
 #
 production:
   <<: *default
-  database: horticultural_exchange_api_production
-  username: horticultural_exchange_api
-  password: <%= ENV['HORTICULTURAL_EXCHANGE_API_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
+  # database: horticultural_exchange_api_production
+  # username: horticultural_exchange_api
+  # password: <%= ENV['HORTICULTURAL_EXCHANGE_API_DATABASE_PASSWORD'] %>
