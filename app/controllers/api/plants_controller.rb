@@ -16,10 +16,12 @@ class Api::PlantsController < ApplicationController
 
   # POST /plants
   def create
+    image = params[:image]
     @plant = Plant.new(plant_params)
+    @plant.image.attach(image) if image.present? && !!@plant
 
     if @plant.save
-      render json: @plant, status: :created, location: @plant
+      render json: @plant.as_json(root: false, methods: :image_url), status: :created, location: @plant
     else
       render json: @plant.errors, status: :unprocessable_entity
     end
@@ -47,6 +49,6 @@ class Api::PlantsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def plant_params
-      params.require(:plant).permit(:name, :category, :price, :care)
+      params.require(:plant).permit(:name, :category, :price, :care, :image)
     end
 end
