@@ -1,5 +1,5 @@
 class Api::PlantsController < ApplicationController
-  load_and_authorize_resource only: [:update, :destroy, :create]
+  # load_and_authorize_resource only: [:update, :destroy, :create]
   before_action :set_plant, only: [:show, :update, :destroy]
 
   # GET /plants
@@ -16,12 +16,21 @@ class Api::PlantsController < ApplicationController
 
   # POST /plants
   def create
-    image = params[:image]
-    @plant = Plant.new(plant_params)
-    @plant.image.attach(image) if image.present? && !!@plant
+    puts 'PLANT params: ', plant_params
+    save_params = {
+      name: plant_params[:name],
+       category: plant_params[:category],
+        price: plant_params[:price], 
+        care: plant_params[:care],
+        image_url: plant_params[:image_url],
+        content_type: plant_params[:content_type],
+        filename: plant_params[:filename]
+      }
+    @plant = Plant.new(save_params)
+    @plant.save
 
     if @plant.save
-      render json: @plant.as_json(root: false, methods: :image_url), status: :created, location: @plant
+      render json: @plant.as_json(root: false), status: :created
     else
       render json: @plant.errors, status: :unprocessable_entity
     end
@@ -49,6 +58,8 @@ class Api::PlantsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def plant_params
-      params.require(:plant).permit(:name, :category, :price, :care, :image)
+      params.require(:plant).permit(
+        :name, :category, :price, :care, :image_url, :content_type, :filename
+      )
     end
 end
