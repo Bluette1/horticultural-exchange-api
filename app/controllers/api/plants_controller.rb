@@ -23,8 +23,6 @@ class Api::PlantsController < ApplicationController
         price: plant_params[:price], 
         care: plant_params[:care],
         image_url: plant_params[:image_url],
-        content_type: plant_params[:content_type],
-        filename: plant_params[:filename]
       }
     @plant = Plant.new(save_params)
     @plant.save
@@ -59,7 +57,7 @@ class Api::PlantsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def plant_params
       params.require(:plant).permit(
-        :name, :category, :price, :care, :image_url, :content_type, :filename
+        :name, :category, :price, :care, :image_url
       )
     end
 end
