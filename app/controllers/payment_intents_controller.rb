@@ -4,8 +4,8 @@ class PaymentIntentsController < ApplicationController
 
     # Create a PaymentIntent with amount and currency
     payment_intent = Stripe::PaymentIntent.create(
-      amount: calculate_order_amount(payment_intent_params),
-      currency: 'usd'
+      amount: 100 * calculate_order_amount(payment_intent_params),
+      currency: 'ZAR'
     )
     render json: { clientSecret: payment_intent['client_secret'] }
   end
@@ -16,8 +16,11 @@ class PaymentIntentsController < ApplicationController
     params.require(:payment_intent)
   end
 
-  def calculate_order_amount(_items)
-    # Replace this constant with a calculation of the order's amount
-    1400
+  def calculate_order_amount(items)
+    sum = 0
+    for item in items do
+      sum += item['quantity'] * item['price']
+    end
+    sum
   end
 end
