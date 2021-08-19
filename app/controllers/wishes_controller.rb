@@ -19,7 +19,7 @@ class WishesController < ApplicationController
     @wish = Wish.new(wish_params)
 
     if @wish.save
-      render json: @wish, status: :created, location: @wish
+      render json: {product: @wish.plant, id: @wish.id, created_at: @wish.created_at}, status: :created
     else
       render json: @wish.errors, status: :unprocessable_entity
     end
@@ -57,6 +57,7 @@ class WishesController < ApplicationController
         {
           product: wish.plant,
           id: wish[:id],
+          created_at: wish[:created_at]
         }
       end
     end
