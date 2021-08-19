@@ -6,4 +6,7 @@ class User < ApplicationRecord
          :jwt_authenticatable,
          jwt_revocation_strategy: JwtDenylist
 
+  has_many :wishes, foreign_key: :user_id, class_name: 'Wish', dependent: :destroy
+
+
 end

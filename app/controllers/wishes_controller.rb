@@ -4,9 +4,9 @@ class WishesController < ApplicationController
 
   # GET /wishes
   def index
-    @wishes = Wish.all
-
-    render json: @wishes
+    @wishes = current_user.wishes.includes(:plant)
+    mapped_wishes = map_to_res @wishes
+    render json: mapped_wishes
   end
 
   # GET /wishes/1
@@ -49,4 +49,16 @@ class WishesController < ApplicationController
     def wish_params
       params.require(:wish).permit(:user_id, :plant_id)
     end
+
+    private
+
+    def map_to_res(wishes)
+      wishes.map do |wish|
+        {
+          product: wish.plant,
+          id: wish[:id],
+        }
+      end
+    end
+  
 end
