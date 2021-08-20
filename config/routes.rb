@@ -11,5 +11,8 @@ Rails.application.routes.draw do
     resources :plants
     resources :categories
   end
+
   get '/member-data', to: 'members#show'
+  post '/mod/users/:id/delete-user/', to: 'users#destroy'
+  post '/mod/users/:id/create-user/', to: 'users#create'
 end
