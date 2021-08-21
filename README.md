@@ -39,7 +39,7 @@ Run `bundle exec rdoc` in the terminal.
 - Create an [Amazon Web Services](https://signin.aws.amazon.com/) account.
 - Afterwards
 
-``Download your credentials `csv` from the management console file to access your credentials.
+Download your credentials `csv` from the management console file to access your credentials.
 - You may have to edit bucket policy to give access permissions to stored objects. For further information, read the [documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html).
 
 #### Integration With Stripe
@@ -69,6 +69,9 @@ Run `bundle exec rdoc` in the terminal.
 - Linkedin: [Marylene Sawyer](https://www.linkedin.com/in/marylene-sawyer)
 
 # Acknowledgements
+- [Stripe](https://dashboard.stripe.com/login?redirect=%2Ftest%2Fpayments)
+- [Amazon Web Services](https://signin.aws.amazon.com/)
+- [Microverse](https://www.microverse.org/)
 - [Tutorial to build a RESTful JSON API with Rails](https://scotch.io/tutorials/build-a-restful-json-api-with-rails-5-part-one)
 
 ## 🤝 Contributing
