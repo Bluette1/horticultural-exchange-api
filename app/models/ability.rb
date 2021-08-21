@@ -32,11 +32,7 @@ class Ability
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
 
     user ||= User.new # guest user (not logged in)
-    if user.superadmin_role?
-      can :manage, :all
-    end
-    if user.supervisor_role?
-      can :manage, User
-    end
+    can :manage, :all if user.superadmin_role?
+    can :manage, User if user.supervisor_role?
   end
 end

@@ -1,6 +1,6 @@
 class Api::PlantsController < ApplicationController
-  load_and_authorize_resource only: [:update, :destroy, :create]
-  before_action :set_plant, only: [:show, :update, :destroy]
+  load_and_authorize_resource only: %i[update destroy create]
+  before_action :set_plant, only: %i[show update destroy]
 
   # GET /plants
   def index
@@ -19,11 +19,11 @@ class Api::PlantsController < ApplicationController
     puts 'PLANT params: ', plant_params
     save_params = {
       name: plant_params[:name],
-       category: plant_params[:category],
-        price: plant_params[:price], 
-        care: plant_params[:care],
-        image_url: plant_params[:image_url],
-      }
+      category: plant_params[:category],
+      price: plant_params[:price],
+      care: plant_params[:care],
+      image_url: plant_params[:image_url]
+    }
     @plant = Plant.new(save_params)
     @plant.save
 
@@ -49,15 +49,16 @@ class Api::PlantsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_plant
-      @plant = Plant.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def plant_params
-      params.require(:plant).permit(
-        :name, :category, :price, :care, :image_url, :in_stock, :common_name, :description
-      )
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_plant
+    @plant = Plant.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def plant_params
+    params.require(:plant).permit(
+      :name, :category, :price, :care, :image_url, :in_stock, :common_name, :description
+    )
+  end
 end

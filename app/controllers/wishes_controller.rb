@@ -1,6 +1,6 @@
 class WishesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_wish, only: [:show, :update, :destroy]
+  before_action :set_wish, only: %i[show update destroy]
 
   # GET /wishes
   def index
@@ -19,7 +19,7 @@ class WishesController < ApplicationController
     @wish = Wish.new(wish_params)
 
     if @wish.save
-      render json: {product: @wish.plant, id: @wish.id, created_at: @wish.created_at}, status: :created
+      render json: { product: @wish.plant, id: @wish.id, created_at: @wish.created_at }, status: :created
     else
       render json: @wish.errors, status: :unprocessable_entity
     end
@@ -40,26 +40,24 @@ class WishesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_wish
-      @wish = Wish.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def wish_params
-      params.require(:wish).permit(:user_id, :plant_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_wish
+    @wish = Wish.find(params[:id])
+  end
 
-    private
+  # Only allow a list of trusted parameters through.
+  def wish_params
+    params.require(:wish).permit(:user_id, :plant_id)
+  end
 
-    def map_to_res(wishes)
-      wishes.map do |wish|
-        {
-          product: wish.plant,
-          id: wish[:id],
-          created_at: wish[:created_at]
-        }
-      end
+  def map_to_res(wishes)
+    wishes.map do |wish|
+      {
+        product: wish.plant,
+        id: wish[:id],
+        created_at: wish[:created_at]
+      }
     end
-  
+  end
 end
