@@ -1,0 +1,25 @@
+POST http://localhost:3000/presigned_url HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjI4NTMxMDkxLCJleHAiOjE2Mjg1MzQ2OTEsImp0aSI6ImQyN2UzMGQ1LTE2NjUtNGVjNS1iNWI0LWE5MjZkMjcxODc2ZSJ9.3I8lZJbaLNgVWHCGQIL-Dojx1K1Jk0F-Cg7oEVI6Nn4
+
+{
+    "file": {
+        "filename": "buchu.jpeg",
+        "byte_size": 5285,
+        "checksum": "QOli8HvZa/A+yX88zB8tpw==",
+        "content_type": "image/jpeg"
+    }
+}
+###
+POST http://localhost:3000/api/plants HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjI4NTMxMDkxLCJleHAiOjE2Mjg1MzQ2OTEsImp0aSI6ImQyN2UzMGQ1LTE2NjUtNGVjNS1iNWI0LWE5MjZkMjcxODc2ZSJ9.3I8lZJbaLNgVWHCGQIL-Dojx1K1Jk0F-Cg7oEVI6Nn4
+content-type: application/json
+
+  {
+        "plant": {
+        "name": "buchu",
+        "category": "protea",
+        "price": "70",
+        "image": "eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBGdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--df38b6e3c4bab1c24b845d78e080fe3d2656e5a6"
+    }
+  }

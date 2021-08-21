@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "rubocop-f": "rubocop --except Style/FrozenStringLiteralComment -a"
+  }
+}
