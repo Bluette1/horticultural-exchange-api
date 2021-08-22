@@ -4,7 +4,7 @@ class Api::PlantsController < ApplicationController
 
   # GET /plants
   def index
-    @plants = Plant.all.order("created_at asc")
+    @plants = Plant.all.order('created_at asc')
 
     render json: @plants
   end
