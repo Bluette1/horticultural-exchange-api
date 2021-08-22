@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   get '/member-data', to: 'members#show'
   post '/mod/users/:id/delete-user/', to: 'users#destroy'
   post '/mod/users/:id/create-user/', to: 'users#create'
+  post '/admin/users/:id/delete-user/', to: 'users#destroy'
+  post '/admin/users/:id/create-user/', to: 'users#create'
 end
