@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Admin::UsersController < ApplicationController
   load_and_authorize_resource class: User, only: %i[update destroy create]
 
   def index
