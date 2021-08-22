@@ -13,8 +13,13 @@ Rails.application.routes.draw do
   end
 
   get '/member-data', to: 'members#show'
-  post '/mod/users/:id/delete-user/', to: 'users#destroy'
-  post '/mod/users/:id/create-user/', to: 'users#create'
-  post '/admin/users/:id/delete-user/', to: 'users#destroy'
-  post '/admin/users/:id/create-user/', to: 'users#create'
+  delete '/mod/users/:id', to: 'users#destroy'
+  post '/mod/users', to: 'users#create'
+  get '/mod/users/', to: 'users#index'
+  delete '/admin/users/:id', to: 'users#destroy'
+  post '/admin/users', to: 'users#create'
+  get '/admin/users/', to: 'users#index'
+
+  post '/mod/users/3/create-user', to: 'users#create'
+
 end
