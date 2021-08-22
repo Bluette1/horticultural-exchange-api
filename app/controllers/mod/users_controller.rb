@@ -6,7 +6,7 @@ class Mod::UsersController < ApplicationController
     @user = User.find_by_email!(email)
     render json: @user
   end
-  
+
   def create
     @user = User.new(user_params)
     if @user.save
