@@ -46,4 +46,6 @@ gem 'dotenv-rails'
 gem 'open-uri'
 gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'stripe'
+gem 'openssl', '>=2.0.3'
+gem 'paperclip'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
