@@ -6,3 +6,5 @@ Aws.config.update({
 })
 
 S3_BUCKET = Aws::S3::Resource.new.bucket(ENV['S3_BUCKET'])
+
+Aws.config[:ssl_verify_peer] = false

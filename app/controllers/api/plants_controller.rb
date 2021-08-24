@@ -16,15 +16,7 @@ class Api::PlantsController < ApplicationController
 
   # POST /plants
   def create
-    puts 'PLANT params: ', plant_params
-    save_params = {
-      name: plant_params[:name],
-      category: plant_params[:category],
-      price: plant_params[:price],
-      care: plant_params[:care],
-      image_url: plant_params[:image_url]
-    }
-    @plant = Plant.new(save_params)
+    @plant = Plant.new(plant_params)
     @plant.save
 
     if @plant.save
@@ -57,8 +49,8 @@ class Api::PlantsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def plant_params
-    params.require(:plant).permit(
-      :name, :category, :price, :care, :image_url, :in_stock, :common_name, :description
+    params.except(:format).permit(
+      :name, :category, :price, :care, :image_url, :in_stock, :common_name, :description, :image
     )
   end
 end
