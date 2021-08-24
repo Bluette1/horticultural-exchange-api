@@ -12,7 +12,14 @@ Rails.application.routes.draw do
     resources :categories
   end
 
+  namespace :admin do
+    resources :users, only: %i[index create destroy]
+  end
+
+  namespace :mod do
+    resources :users, only: %i[index create destroy]
+  end
+
   get '/member-data', to: 'members#show'
-  post '/mod/users/:id/delete-user/', to: 'users#destroy'
-  post '/mod/users/:id/create-user/', to: 'users#create'
+
 end
