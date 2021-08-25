@@ -1,19 +1,16 @@
 class Users::RegistrationsController < Devise::RegistrationsController
+  skip_authorization_check
+
   respond_to :json
+
+  def create
+    user = CreateUser.new(register_params).call
+    render json: user
+  end
 
   private
 
-  def respond_with(resource, _opts = {})
-    register_success && return if resource.persisted?
-
-    register_failed
-  end
-
-  def register_success
-    render json: { message: 'Signed up sucessfully.' }
-  end
-
-  def register_failed
-    render json: { message: 'Something went wrong.' }
+  def register_params
+    params.require(:registration).permit(:email, :password)
   end
 end
