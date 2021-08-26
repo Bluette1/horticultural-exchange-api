@@ -14,7 +14,7 @@
 - Rails version 6.1.4
 
 ## Live Demo
-[Live Demo](https://xchange-plant-api.herokuapp.com/)
+[Live Demo](https://igrow-plant-api.herokuapp.com/)
 
 ### Run instructions 
 -  You can clone the GitHub repo and type the following commands in the terminal to run the app locally 
