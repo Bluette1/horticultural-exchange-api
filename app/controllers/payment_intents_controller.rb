@@ -21,6 +21,10 @@ class PaymentIntentsController < ApplicationController
     items.each do |item|
       sum += item['quantity'] * item['price']
     end
-    sum
+    sum + shipping_costs
+  end
+
+  def shipping_costs
+    60
   end
 end
