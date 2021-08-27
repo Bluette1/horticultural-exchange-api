@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   resources :wishes
   post '/payment_intents', to: 'payment_intents#create'
   post '/presigned_url', to: 'direct_upload#create'
-  devise_for :users,
+  devise_for :users, defaults: { format: :json },
+
     controllers: {
         sessions: 'users/sessions',
         registrations: 'users/registrations'

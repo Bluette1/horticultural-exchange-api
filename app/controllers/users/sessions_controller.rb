@@ -4,7 +4,7 @@ class Users::SessionsController < Devise::SessionsController
   private
 
   def respond_with(resource, _opts = {})
-    render json: resource, status: :ok
+    render_jsonapi_response(resource)
   end
 
   def respond_to_on_destroy
