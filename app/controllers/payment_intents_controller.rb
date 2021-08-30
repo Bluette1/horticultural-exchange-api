@@ -19,7 +19,8 @@ class PaymentIntentsController < ApplicationController
   def calculate_order_amount(items)
     sum = 0
     items.each do |item|
-      sum += item['quantity'] * item['price']
+      prodct = item[:product]
+      sum += item['quantity'] * prodct[:price]
     end
     sum + shipping_costs
   end
