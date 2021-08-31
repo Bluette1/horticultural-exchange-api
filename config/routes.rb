@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :wishes
   post '/payment_intents', to: 'payment_intents#create'
   post '/presigned_url', to: 'direct_upload#create'
   devise_for :users, defaults: { format: :json },
@@ -9,8 +8,14 @@ Rails.application.routes.draw do
         registrations: 'users/registrations'
     }
   namespace :api, defaults: {format: :json} do
-    resources :plants
+    resources :wishes, only: [:destroy, :index]
+    resources :cart_items, only: [:destroy, :index, ]
+    resources :plants do
+      resources :wishes, only: [:create], controller: 'wishes'
+      resources :cart_items, only: [:create], controller: 'cart_items'
+    end
     resources :categories
+    resources :cart_items, only: [:update], controller: 'cart_items'
   end
 
   namespace :admin do
@@ -22,5 +27,7 @@ Rails.application.routes.draw do
   end
 
   get '/member-data', to: 'members#show'
+  delete '/api/cart_items', to: 'api/cart_items#destroy_all'
+
 
 end

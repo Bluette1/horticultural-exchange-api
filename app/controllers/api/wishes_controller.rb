@@ -1,4 +1,4 @@
-class WishesController < ApplicationController
+class Api::WishesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_wish, only: %i[show update destroy]
 
@@ -16,19 +16,10 @@ class WishesController < ApplicationController
 
   # POST /wishes
   def create
-    @wish = Wish.new(wish_params)
+    @wish = current_user.wishes.build(plant_id: params[:plant_id])
 
     if @wish.save
       render json: { product: @wish.plant, id: @wish.id, created_at: @wish.created_at }, status: :created
-    else
-      render json: @wish.errors, status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /wishes/1
-  def update
-    if @wish.update(wish_params)
-      render json: @wish
     else
       render json: @wish.errors, status: :unprocessable_entity
     end
@@ -44,11 +35,6 @@ class WishesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_wish
     @wish = Wish.find(params[:id])
-  end
-
-  # Only allow a list of trusted parameters through.
-  def wish_params
-    params.require(:wish).permit(:user_id, :plant_id)
   end
 
   def map_to_res(wishes)

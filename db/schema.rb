@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_18_131139) do
+ActiveRecord::Schema.define(version: 2021_08_31_145644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,16 @@ ActiveRecord::Schema.define(version: 2021_08_18_131139) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "cart_items", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "plant_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "quantity", default: 1
+    t.index ["plant_id"], name: "index_cart_items_on_plant_id"
+    t.index ["user_id"], name: "index_cart_items_on_user_id"
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "category"
     t.datetime "created_at", precision: 6, null: false
@@ -68,6 +78,10 @@ ActiveRecord::Schema.define(version: 2021_08_18_131139) do
     t.boolean "in_stock", default: true
     t.string "common_name"
     t.text "description"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.bigint "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
@@ -96,6 +110,8 @@ ActiveRecord::Schema.define(version: 2021_08_18_131139) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "cart_items", "plants"
+  add_foreign_key "cart_items", "users"
   add_foreign_key "wishes", "plants"
   add_foreign_key "wishes", "users"
 end
