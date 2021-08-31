@@ -20,7 +20,15 @@ class Api::CartItemsController < ApplicationController
     if @cart_item.save
       render json: { product: @cart_item.plant, id: @cart_item.id, created_at: @cart_item.created_at }, status: :created
     else
-      p '@cart_item.errors:: ', @cart_item.errors
+      render json: @cart_item.errors, status: :unprocessable_entity
+    end
+  end
+
+  # PATCH/PUT /cart_items/1
+  def update
+    if @cart_item.update(cart_item_params)
+      render json: @cart_item
+    else
       render json: @cart_item.errors, status: :unprocessable_entity
     end
   end
@@ -30,6 +38,11 @@ class Api::CartItemsController < ApplicationController
     @cart_item.destroy
   end
 
+  # DELETE /cart_items/
+  def destroy_all
+    current_user.cart_items.destroy_all
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -37,12 +50,20 @@ class Api::CartItemsController < ApplicationController
     @cart_item = CartItem.find(params[:id])
   end
 
+  # Only allow a list of trusted parameters through.
+  def cart_item_params
+    params.require(:cart_item).permit(
+      :product, :id, :created_at, :quantity
+    )
+  end
+
   def map_to_res(cart_items)
     cart_items.map do |cart_item|
       {
         product: cart_item.plant,
         id: cart_item[:id],
-        created_at: cart_item[:created_at]
+        created_at: cart_item[:created_at],
+        quantity: cart_item[:quantity]
       }
     end
   end
