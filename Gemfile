@@ -38,7 +38,6 @@ group :development do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'spring'
-  # gem 'require_all'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -47,7 +46,7 @@ gem 'aws-sdk-s3'
 gem 'cancancan'
 gem 'devise'
 gem 'devise-jwt'
-gem 'dotenv-rails'
+gem 'dotenv-rails', groups: [:development, :test]
 gem 'open-uri'
 gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'stripe'
