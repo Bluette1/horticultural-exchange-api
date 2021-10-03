@@ -28,6 +28,4 @@ Rails.application.routes.draw do
 
   get '/member-data', to: 'members#show'
   delete '/api/cart_items', to: 'api/cart_items#destroy_all'
-
-
 end
