@@ -6,7 +6,7 @@ env:
   FORCE_COLOR: 1
   DBPASS: postgres
   DBUSER: postgres
-  DBHOST: localhost
+  DBHOST: 127.0.0.1
   RAILS_ENV: test
 
 jobs:
@@ -19,6 +19,7 @@ jobs:
         env:
           DBUSER: postgres
           DBPASS: postgres
+          DBHOST: 127.0.0.1
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
