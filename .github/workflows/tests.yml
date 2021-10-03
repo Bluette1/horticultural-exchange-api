@@ -4,9 +4,9 @@ on: pull_request
 
 env:
   FORCE_COLOR: 1
-  POSTGRES_PASSWORD: postgres
-  POSTGRES_USER: postgres
-  POSTGRES_HOST: localhost
+  DBPASS: postgres
+  DBUSER: postgres
+  DBHOST: localhost
   RAILS_ENV: test
 
 jobs:
@@ -17,8 +17,8 @@ jobs:
         image: postgres:11@sha256:85d79cba2d4942dad7c99f84ec389a5b9cc84fb07a3dcd3aff0fb06948cdc03b
         ports: ['5432:5432']
         env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
+          DBUSER: postgres
+          DBPASS: postgres
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -30,9 +30,9 @@ jobs:
       with:
         ruby-version: 2.7.x
       env:
-        POSTGRES_HOST: 127.0.0.1
-        POSTGRES_USER: postgres
-        POSTGRES_PASSWORD: postgres
+        DBHOST: 127.0.0.1
+        DBUSER: postgres
+        DBPASS: postgres
         RAILS_ENV: test
     - name: Run Tests
       run: | 
