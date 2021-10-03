@@ -46,7 +46,7 @@ gem 'aws-sdk-s3'
 gem 'cancancan'
 gem 'devise'
 gem 'devise-jwt'
-gem 'dotenv-rails', groups: [:development, :test]
+gem 'dotenv-rails', groups: %i[development test]
 gem 'open-uri'
 gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'stripe'
