@@ -41,4 +41,4 @@ jobs:
         sudo service postgresql restart
         bundle exec rake db:create
         bundle exec rails db:migrate
-        export $(cat .env.test) && bundle exec rspec 
+        bundle exec rspec 
