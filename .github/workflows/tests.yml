@@ -1,13 +1,5 @@
 name: Test with rspec
-
 on: pull_request
-
-env:
-  FORCE_COLOR: 1
-  DBPASS: postgres
-  DBUSER: postgres
-  DBHOST: 127.0.0.1
-  RAILS_ENV: test
 
 jobs:
   build:
@@ -21,6 +13,9 @@ jobs:
           DBPASS: postgres
           DBHOST: 127.0.0.1
           RAILS_ENV: test
+          S3_BUCKET: ${{ secrets.S3_BUCKET }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          JWT_SECRET_KEY: ${{ secrets.JWT_SECRET_KEY }}
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -36,6 +31,9 @@ jobs:
         DBUSER: postgres
         DBPASS: postgres
         RAILS_ENV: test
+        S3_BUCKET: ${{ secrets.S3_BUCKET }}
+        AWS_REGION: ${{ secrets.AWS_REGION }}
+        JWT_SECRET_KEY: ${{ secrets.JWT_SECRET_KEY }}
     - name: Run Tests
       run: | 
         sudo apt-get -yqq install libpq-dev 
