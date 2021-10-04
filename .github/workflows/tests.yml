@@ -7,6 +7,8 @@ env:
   DBPASS: postgres
   DBHOST: 127.0.0.1
   RAILS_ENV: test
+  S3_BUCKET: plant-xchange-app-dev
+  AWS_REGION: us-east-1
   JWT_SECRET_KEY: ${{ secrets.JWT_SECRET_KEY }}
 
 jobs:
