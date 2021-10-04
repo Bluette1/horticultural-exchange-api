@@ -1,9 +1,6 @@
 name: Test with rspec
 on: pull_request
 
-env:
-  RAILS_ENV: test
-
 jobs:
   build:
     runs-on: ubuntu-18.04
