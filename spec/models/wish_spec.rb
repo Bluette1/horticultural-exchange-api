@@ -1,13 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe Plant, type: :model do
+RSpec.describe Wish, type: :model do
   describe 'Validations' do
     it 'is valid with valid attributes' do
-      expect(build(:plant)).to be_valid
+      expect(build(:wish)).to be_valid
     end
   end
 
   describe 'Associations' do
-    it { should have_many(:wishes) }
+    it { should belong_to(:user) }
+    it { should belong_to(:plant) }
   end
 end
