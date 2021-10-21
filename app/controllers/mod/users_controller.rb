@@ -1,5 +1,5 @@
 class Mod::UsersController < ApplicationController
-  load_and_authorize_resource class: User, only: %i[update destroy create]
+  load_and_authorize_resource class: User, only: %i[index update destroy create]
 
   def index
     email = params[:email]
