@@ -4,7 +4,7 @@ RSpec.describe 'Users::RegistrationsController', type: :controller do
   describe 'success scenarios when the user is successfully logged in' do
     before(:each) do
       @controller = Users::RegistrationsController.new
-      @request.env["devise.mapping"] = Devise.mappings[:user]
+      @request.env['devise.mapping'] = Devise.mappings[:user]
     end
 
     it 'POST :create' do
