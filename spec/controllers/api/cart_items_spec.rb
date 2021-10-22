@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'devise/jwt/test_helpers'
 require 'json'
 
-RSpec.describe 'Api::CartItemsController.new', type: :controller do
+RSpec.describe 'Api::CartItemsController', type: :controller do
   describe 'success scenarios when current user is logged in' do
     before(:each) do
       @controller = Api::CartItemsController.new
@@ -26,6 +26,13 @@ RSpec.describe 'Api::CartItemsController.new', type: :controller do
       post :create,
            params: { plant_id: @plant.id }
       assert_response :success
+    end
+
+    it 'PATCH :update' do
+      patch :update,
+            params: { cart_item: { quantity: 2 }, id: @id }
+      assert_response :success
+      expect(JSON.parse(response.body)['quantity']).to eq 2
     end
 
     it 'DESTROY :destroy' do
