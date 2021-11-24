@@ -7,14 +7,14 @@
 - Rails 
 
 ## Description
-- This project is for building a simple RESTful backend API for the horticultural-exchange [application](https://xchange-plant-app.herokuapp.com/).
+- This project is for building a simple RESTful backend API for the horticultural-exchange [application](http://137.184.10.36/).
 
 ## Built with
 - Ruby version 2.7.2
 - Rails version 6.1.4
 
 ## Live Demo
-[Live Demo](https://igrow-plant-api.herokuapp.com/)
+[Live Demo](http://164.90.146.95:3000/)
 
 ### Run instructions 
 -  You can clone the GitHub repo and type the following commands in the terminal to run the app locally 
@@ -29,7 +29,7 @@ Make sure the server is running
 - Go to http://localhost:3000/ in your web browser
 
 
-- Follow the links on the [horticultural-exchange-website](https://xchange-plant-app.herokuapp.com/) to access the available features.
+- Follow the links on the [horticultural-exchange-website](http://137.184.10.36/) to access the available features.
 
 ## Generate documentation
 Run `bundle exec rdoc` in the terminal.
@@ -60,7 +60,11 @@ Download your credentials `csv` from the management console file to access your 
 #### Heroku Deployment with Docker
 - Instructions can be found [here]( 
  https://betterprogramming.pub/how-to-containerize-and-deploy-apps-with-docker-and-heroku-b1c49e5bc070).
-
+#### Deployment on Dokku Host
+- Instructions can be found [here](https://dokku.com/docs/deployment/application-deployment/)
+- Dokku Logging Command
+  `dokku logs node-js-app --tail`
+  - See [more](https://dokku.com/docs/deployment/logs/)
 ## Authors
 
 👤 **Marylene Sawyer**
