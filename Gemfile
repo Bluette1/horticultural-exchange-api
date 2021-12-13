@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.2'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.1'
 # Use postgresql as the database for Active Record
@@ -28,6 +26,12 @@ gem 'rack-cors'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'database_cleaner-active_record'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'rails-controller-testing'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
 end
 
 group :development do
@@ -42,7 +46,7 @@ gem 'aws-sdk-s3'
 gem 'cancancan'
 gem 'devise'
 gem 'devise-jwt'
-gem 'dotenv-rails'
+gem 'dotenv-rails', groups: %i[development test]
 gem 'open-uri'
 gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'stripe'

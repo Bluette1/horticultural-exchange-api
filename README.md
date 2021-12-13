@@ -2,6 +2,8 @@
 
 ![Linters](https://github.com/Bluette1/horticultural-exchange-api/workflows/Linters/badge.svg)
 
+![Test with jest](https://github.com/Bluette1/horticultural-exchange-api/workflows/Test%20with%20jest/badge.svg)
+
 ## Built With
 - Ruby
 - Rails 
