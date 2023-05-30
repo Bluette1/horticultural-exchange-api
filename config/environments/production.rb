@@ -113,5 +113,5 @@ Rails.application.configure do
 
   # Allow requests for all hostnames
   # config.hosts.clear
-  config.hosts << "thawing-thicket-49646.herokuapp.com"
+  config.hosts << "igrow-api.fly.dev"
 end
