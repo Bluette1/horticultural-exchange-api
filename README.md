@@ -16,7 +16,7 @@
 - Rails version 6.1.4
 
 ## Live Demo
-[Live Demo](https://igrow-plant-api.herokuapp.com/)
+[Live Demo](https://igrow-api.fly.dev/)
 
 ### Run instructions 
 -  You can clone the GitHub repo and type the following commands in the terminal to run the app locally 
@@ -31,7 +31,7 @@ Make sure the server is running
 - Go to http://localhost:3000/ in your web browser
 
 
-- Follow the links on the [horticultural-exchange-website](https://xchange-plant-app.herokuapp.com/) to access the available features.
+- Follow the links on the [horticultural-exchange-website](https://igrow-app.fly.dev/) to access the available features.
 
 ## Generate documentation
 Run `bundle exec rdoc` in the terminal.
@@ -62,6 +62,9 @@ Download your credentials `csv` from the management console file to access your 
 #### Heroku Deployment with Docker
 - Instructions can be found [here]( 
  https://betterprogramming.pub/how-to-containerize-and-deploy-apps-with-docker-and-heroku-b1c49e5bc070).
+
+ ### Fly.io
+  - Follow instructions in the [Fly.io documention](https://fly.io/docs/rails/getting-started//)
 
 ## Authors
 
