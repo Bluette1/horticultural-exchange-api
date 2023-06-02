@@ -1,5 +1,5 @@
 class DirectUploadController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def create
     presigned_url = request_for_presigned_url
@@ -22,7 +22,7 @@ class DirectUploadController < ApplicationController
     ).bucket(ENV.fetch('S3_BUCKET', nil))
 
     s3_bucket.presigned_post(
-      key: "#{Rails.env}/#{SecureRandom.uuid}/${filename}",
+      key: "#{Rails.env}/#{SecureRandom.uuid}/#{blob_params[:filename]}",
       success_action_status: '201',
       signature_expiration: (Time.now.utc + 15.minutes)
     )

@@ -41,8 +41,8 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'aws-sdk'
-gem 'aws-sdk-s3'
+gem 'aws-sdk', '~> 3.0.2'
+gem 'aws-sdk-s3', '~> 1.98.0'
 gem 'cancancan'
 gem 'devise'
 gem 'devise-jwt'
