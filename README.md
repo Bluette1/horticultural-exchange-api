@@ -63,6 +63,9 @@ Download your credentials `csv` from the management console file to access your 
 - Instructions can be found [here]( 
  https://betterprogramming.pub/how-to-containerize-and-deploy-apps-with-docker-and-heroku-b1c49e5bc070).
 
+ ### Fly.io
+  - Follow instructions in the [Fly.io documention](https://fly.io/docs/rails/getting-started//)
+
 ## Authors
 
 👤 **Marylene Sawyer**
