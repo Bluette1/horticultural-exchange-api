@@ -33,6 +33,9 @@ Make sure the server is running
 
 - Follow the links on the [horticultural-exchange-website](https://igrow-app.fly.dev/) to access the available features.
 
+- Making Purchases:
+  - Payment is through [Stripe](https://stripe.com). You can use the test credit no. 4242424242424242 for testing purposes. For further details view [Stripe documentation](https://stripe.com/docs/testing)
+
 ## Generate documentation
 Run `bundle exec rdoc` in the terminal.
 
