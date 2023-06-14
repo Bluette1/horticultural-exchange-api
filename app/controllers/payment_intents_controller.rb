@@ -1,12 +1,13 @@
 class PaymentIntentsController < ApplicationController
   def create
-    Stripe.api_key = Rails.application.credentials.stripe[:api_secret_key]
+    Stripe.api_key = ENV.fetch('STRIPE_API_SECRET_KEY', nil)
 
     # Create a PaymentIntent with amount and currency
     payment_intent = Stripe::PaymentIntent.create(
       amount: 100 * calculate_order_amount(payment_intent_params),
       currency: 'ZAR'
     )
+
     render json: { clientSecret: payment_intent['client_secret'] }
   end
 
