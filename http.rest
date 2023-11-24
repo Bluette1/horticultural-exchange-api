@@ -23,3 +23,22 @@ content-type: application/json
         "image": "eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBGdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--df38b6e3c4bab1c24b845d78e080fe3d2656e5a6"
     }
   }
+  
+###
+POST https://igrow-api.fly.dev/users HTTP/1.1
+content-type: application/json
+
+  {
+    "email": "meeigiry.benjie@gmail.com",
+    "password": "password123"
+  }
+
+###
+
+POST  https://igrow-api.fly.dev/users/sign_in HTTP/1.1
+content-type: application/json
+
+  {
+    "email": "meeigiry.benjie@gmail.com",
+    "password": "password123"
+  }

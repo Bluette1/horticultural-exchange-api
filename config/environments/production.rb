@@ -113,5 +113,5 @@ Rails.application.configure do
 
   # Allow requests for all hostnames
   # config.hosts.clear
-  config.hosts << "igrow-api.fly.dev"
+  config.hosts << "igrow-api.onrender.com"
 end
