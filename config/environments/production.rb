@@ -26,6 +26,9 @@ Rails.application.configure do
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.asset_host = 'http://assets.example.com'
 
+  config.assets.compile = false
+  config.assets.digest = true
+
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
@@ -113,5 +116,5 @@ Rails.application.configure do
 
   # Allow requests for all hostnames
   # config.hosts.clear
-  config.hosts << "igrow-api.onrender.com"
+  config.hosts << "igrow-api-251abf9d4424.herokuapp.com"
 end

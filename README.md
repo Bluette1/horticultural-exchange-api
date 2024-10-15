@@ -9,14 +9,14 @@
 - Rails 
 
 ## Description
-- This project is for building a simple RESTful backend API for the horticultural-exchange [application](https://xchange-plant-app.herokuapp.com/).
+- This project is for building a simple RESTful backend API for the horticultural-exchange [application](https://igrow-app-bfaa94354ba4.herokuapp.com).
 
 ## Built with
 - Ruby version 2.7.2
 - Rails version 6.1.4
 
 ## Live Demo
-[Live Demo](https://igrow-api.onrender.com)
+[Live Demo](http://igrow-api-251abf9d4424.herokuapp.com)
 
 ### Run instructions 
 -  You can clone the GitHub repo and type the following commands in the terminal to run the app locally 
